@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "",
+  "backgroundColor": "#f0f0f0",
+  "navigationBarBackgroundColor": "#FFF",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": false,
+  "disableScroll": false,
+  "usingComponents": {
+    "wux-input": "wux-weapp/input/index",
+    "wux-textarea": "wux-weapp/textarea/index",
+    "wu-switch": "/components/wu/switch/index",
+    "course-disperse": "/pageComponents/course-disperse/index"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "",
+  "backgroundColor": "#f0f0f0",
+  "navigationBarBackgroundColor": "#FFF",
+  "navigationBarTextStyle": "black",
+  "disableScroll": false,
+  "usingComponents": {
+    "wu-switch": "/components/wu/switch/index",
+    "wu-audio-play": "/components/wu/audio-play/index"
+  }
+}

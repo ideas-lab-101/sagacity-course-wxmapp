@@ -1,0 +1,87 @@
+.rm-container{
+    padding: 40rpx;
+}
+/*
+* book
+*/
+.index-book-box{
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 20vw;
+    margin-right: 65rpx;
+    margin-top: 10rpx;
+    position: relative;
+}
+.index-book-box:last-child{
+    margin-right: 0;
+}
+.index-book-box::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -6rpx;
+    width: 100%;
+    height: 14rpx;
+    border-radius: 100rpx 0 0 100rpx;
+    background-color: white;
+    border: 1rpx solid #e6e6e6;
+    box-sizing: border-box;
+    z-index: 10;
+    box-shadow: 0 0 6rpx rgba(0, 0, 0, 0.1) inset;
+}
+
+.index-book-box ._book{
+    padding: 0;border: 0; outline: none;
+    margin: 0;
+    width: 20vw;
+    line-height: 0;
+    border-radius: 0 0 0 10rpx;
+    box-shadow: 0 18px 20px -16px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+.index-book-box ._book::after{
+    width: 4px;
+    content: "";
+    position: absolute;
+    left: 1px;
+    top: 0;
+    height: 100%;
+    z-index: 10;
+    background-image: linear-gradient(
+            to right,
+            rgba(255,255,255, 0) 0%,
+            rgba(255,255,255, 0.3) 50%,
+            rgba(255,255,255, 0) 100%)
+}
+.index-book-box ._book::before{
+    width: 6%;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 0 20rpx;
+}
+.index-book-box ._book image{
+    padding: 0; border: 0; outline: none;
+    margin: 0;
+    width: 100%;
+    height: 26.67vw;
+    line-height: 0;
+    overflow: inherit;
+}
+.index-book-box ._name{
+    margin-top: 30rpx;
+    display: block;
+    font-size: 22rpx;
+    height: 54rpx;
+    white-space:normal;
+    overflow:hidden;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+}

@@ -1,0 +1,23 @@
+<wu-loading id="wu-loading" title="加载中..." />
+<wu-toast id="wu-toast"></wu-toast>
+
+<wu-navigation id="wu-navigation" title="{{nav.title}}({{task.totalRow}})"
+               transparent="{{nav.transparent}}"
+               model="{{nav.model}}">
+</wu-navigation>
+<view class="tm-container">
+
+    <view class="tm-single" wx:for="{{task.list}}" wx:key="{{index}}" catchtap="goTaskDetail" data-index="{{index}}">
+        <image class="_image" mode="aspectFill" src="{{item.CoverURL}}" lazy-load/>
+        <view class="_del">
+            <view class="_name">{{item.DataName}}</view>
+            <text class="_num">{{item.CourseName}}</text>
+            <view class="_num">已交作业数：{{item.TotalRecord}}</view>
+        </view>
+        <view class="_link">
+            <text class="iconfont icon-zuo"></text>
+        </view>
+    </view>
+    <view  wx:if="{{task.lastPage}}" class="noDate">额， 数据到底了!</view>
+
+</view>

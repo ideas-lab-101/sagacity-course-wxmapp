@@ -1,0 +1,75 @@
+<wxs src="./mine.wxs" module="moduleMine" />
+
+<view capture-bind:touchstart="frameTouchStart" capture-bind:touchend="frameTouchEnd">
+
+  <view class="mine-background">
+    <image src="{{moduleMine.changeURL(userInfo.ZoneBgURL, userInfo.avatar_url)}}" mode="aspectFill"></image>
+    <view class="_shadow"></view>
+  </view>
+
+  <scroll-view scroll-y class="mine-scroll"
+               scroll-with-animation
+               bindscroll="pointFixScrollEvent"
+               bindscrolltolower="scrolltolowerEvent"
+               scroll-top="{{scroll.scrollTop}}">
+
+
+    <view class="mine-hasinfo">
+
+      <!-- 扫码 -->
+      <view class="covered" bindtap="getCodeEvent">
+        <text class="iconfont icon-saomiao"></text>
+      </view>
+
+      <!-- 基础信息 -->
+      <view class="relative mine-top-box">
+
+        <view class="uerinfo">
+          <view class="avatar">
+            <image src="{{userInfo.avatar_url}}" class="avatar-img"></image>
+          </view>
+          <view class="nickname">
+            <text>{{userInfo.Caption}}</text>
+            <view class="_sign" wx:if="{{userInfo.SignText}}">{{userInfo.SignText}}</view>
+            <!--<view class="_edit _o" bindtap="profileEvent" wx:if="{{userInfo.intState===1}}"><text class="iconfont icon-bianji"></text></view>
+            <view class="_edit" bindtap="profileEvent" wx:else>[完善资料]</view>-->
+          </view>
+
+        </view>
+
+        <view class="item-box">
+          <view class="item" hover-class="basic-hover-class-view" bindtap="goMessage">
+            <text class='iconfont icon-xiaoxi'></text>
+            <view class="item-text">我的消息</view>
+            <view>
+              <text class="_num">0</text>
+              <text class='iconfont icon-zuo _l'></text>
+            </view>
+          </view>
+          <view class="item" hover-class="basic-hover-class-view" bindtap="goPassword">
+            <text class='iconfont icon-mimaxiugai'></text>
+            <view class="item-text">密码修改</view>
+            <text class='iconfont icon-zuo _l'></text>
+          </view>
+          <button class="shareBtn" hover-class="basic-hover-class-view" open-type="share" plain id="appShare">
+            <text class='iconfont icon-chakantiezifenxiang'></text>
+            <view class="item-text">分享应用</view>
+          </button>
+          <view class="item" hover-class="basic-hover-class-view" bindtap="goHelp">
+            <text class='iconfont icon-iconmoban214'></text>
+            <view class="item-text">使用帮助</view>
+            <text class='iconfont icon-zuo _l'></text>
+          </view>
+          <view class="item logout" hover-class="logout-hover" bindtap="logout">
+            <text class='iconfont icon-tuichu'></text>
+            <view class="item-text">退出登陆</view>
+          </view>
+        </view>
+
+      </view>
+
+
+    </view>
+
+  </scroll-view>
+</view>

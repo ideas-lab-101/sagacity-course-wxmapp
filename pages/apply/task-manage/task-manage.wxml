@@ -1,0 +1,53 @@
+<wu-loading id="wu-loading" title="加载中..." />
+<wu-toast id="wu-toast"></wu-toast>
+<wxs src="./task-manage.wxs" module="moduleTaskManager" />
+
+<wu-navigation id="wu-navigation" title="{{nav.title}}({{task.totalRow}})"
+               transparent="{{nav.transparent}}"
+               model="{{nav.model}}">
+</wu-navigation>
+<view class="tm-container">
+
+    <view class="data-single" wx:for="{{task.list}}" wx:key="{{index}}">
+        <!--区域日期-->
+        <view wx:if="{{!moduleTaskManager.equalDate(task.list[index-1].AddTime, item.AddTime)}}"
+              class="data-single-date-box">
+            <rich-text nodes="{{moduleTaskManager.resolveTime(item.AddTime).date}}"
+                       class="data-single-date"  id="data-nodes{{index}}"></rich-text>
+        </view>
+        <view class="_insert">
+            <view class="data-single-time flex between">
+                <text class="color-999 font-12">{{moduleTaskManager.resolveTime(item.AddTime).time}}</text>
+            </view>
+            <view class="data-single-del" hover-class="event-hover-class-view" catchtap="goTaskDetail" data-index="{{index}}">
+                <view catchtap="{{false}}" class="tm-opera">
+                    <wu-switch name="positive" slot="footer" color="balanced"
+                               value="{{ item.intState===1?true:false}}"
+                               size="small"
+                               bind:change="controlFixEvent"
+                               capture-bind:tap="captureFix" data-index="{{index}}"/>
+                </view>
+
+                <view class="tm-del" catchtap="delTask" data-index="{{index}}">
+                    <text class="iconfont icon-del"></text><text>删除</text>
+                </view>
+                <view class="_name">{{item.Datas}}</view>
+                <view class="_content {{item.Datas?'':'noTop'}}"><label>作业说明：</label>{{item.Content}}</view>
+                <view class="_num">
+                    <text>已交作业数：{{item.tCount}}</text>
+                    <text wx:if="{{item.ValidTime}}">提交截止时间：{{item.ValidTime}}</text>
+                    <text wx:else>截止日期：长期有效</text>
+                </view>
+                <view class="_del">
+                    <text>详情</text><text class="iconfont icon-zuo"></text>
+                </view>
+                <view class="_star" wx:if="{{item.blnMark}}">
+                    <text class="iconfont icon-collect-on"></text>
+                </view>
+            </view>
+        </view>
+
+    </view>
+    <view  wx:if="{{task.lastPage}}" class="noDate">额， 数据到底了!</view>
+
+</view>

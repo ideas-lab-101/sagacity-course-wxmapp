@@ -1,0 +1,75 @@
+{
+  "debug": false,
+  "pages": [
+    "pages/tabBar/index/index",
+    "pages/tabBar/mine/mine"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "晓得Le",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#ffffff",
+    "backgroundColorTop": "#ffffff",
+    "backgroundColorBottom": "#f7f7f7",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#c5c5c5",
+    "selectedColor": "#733429",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/tabBar/index/index",
+        "text": "我的小组",
+        "iconPath": "/assets/images/home_blank.png",
+        "selectedIconPath": "/assets/images/home_fill.png"
+      },
+      {
+        "pagePath": "pages/tabBar/mine/mine",
+        "text": "个人中心",
+        "iconPath": "/assets/images/mine_blank.png",
+        "selectedIconPath": "/assets/images/mine_fill.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "pages/apply/",
+      "pages": [
+        "resource-manage/resource-manage",
+        "resource-task/resource-task",
+        "resource-task-detail/resource-task-detail",
+        "team-set/team-set",
+        "students-manage/students-manage",
+        "task-manage/task-manage",
+        "task-detail/task-detail",
+        "issue-task/issue-task"
+      ]
+    },
+    {
+      "root": "pages/mine/",
+      "pages": [
+        "my-message/my-message",
+        "password/password",
+        "my-set/my-set"
+      ]
+    },
+    {
+      "root": "pages/common/",
+      "pages": [
+        "accredit/accredit",
+        "documents/documents"
+      ]
+    }
+  ],
+  "usingComponents": {
+    "wu-navigation": "/components/wu/navigation/index",
+    "wu-loading": "/components/wu/loading/index",
+    "wu-toast": "/components/wu/toast/index",
+    "wu-backdrop": "/components/wu/backdrop/index",
+    "wu-animation-group": "/components/wu/animation-group/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

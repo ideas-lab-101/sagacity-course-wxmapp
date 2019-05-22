@@ -1,0 +1,33 @@
+<wxs src="./index.wxs" module="moduleIndex" />
+<wu-toast id="wu-toast"></wu-toast>
+
+<wu-animation-group wux-class="course-layer" in="{{ courseIn }}" class-names="wux-animate--fadeInUp">
+    <view style="padding-top: {{deviceStatusBarHeight}}px;" id="courseNav">
+        <view class="course-opera">
+            <text class="iconfont icon-fanhui"></text>
+            <text class="_btn green" catchtap="submit">确定</text>
+            <text class="_btn" catchtap="hide">取消</text>
+        </view>
+    </view>
+    <view class="course-list" id="courseList">
+        <view wx:for="{{courseList}}" wx:key="{{index}}" data-index="{{index}}" class="course-list-s" catchtap="courseTabChange">
+            <view class="index-book-box">
+                <view class="_book"><image src="{{item.CoverURL}}" mode="aspectFill"></image></view>
+                <view class="_name">{{item.CourseName}}</view>
+            </view>
+            <text class="iconfont icon-xuanzhong _check" wx:if="{{courseCurrent === index}}"></text>
+        </view>
+    </view>
+    <scroll-view scroll-y style="height: {{scrollHeight}};" bindscrolltolower="profileTolower">
+        <view class="lesson-box">
+            <view class="lesson-single" wx:for="{{lesson.list}}" wx:key="{{index}}">
+                <text class="_less">{{item.LessonName}}</text>
+                <view class="_data" wx:for="{{item.LessonData}}" wx:for-index="courseIndex" wx:for-item="courseItem"  wx:key="{{courseItem.DataID}}" catchtap="lessonChange" data-item="{{courseItem}}">
+                    <text class="iconfont icon-iconfont _c" wx:if="{{moduleIndex.inArray(courseItem.DataID, storeData)}}"></text>
+                    <text class="_c" wx:else></text>
+                    <text>{{courseItem.DataName}}</text>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</wu-animation-group>

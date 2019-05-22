@@ -1,0 +1,61 @@
+<wu-loading id="wu-loading" title="加载中..." />
+<wu-toast id="wu-toast"></wu-toast>
+<wxs src="../../../wxs/date.wxs" module="moduleDate" />
+
+<wu-navigation id="wu-navigation" title="{{nav.title}}"
+               transparent="{{nav.transparent}}"
+               model="{{nav.model}}">
+</wu-navigation>
+<view class="td-container">
+
+    <view>
+        <canvas canvas-id="ringCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
+    </view>
+
+    <view class="td-tab">
+        <text catchtap="tabChange" class="{{current===0?'active':''}}" data-index="0">已交作业的学员({{ExitList.length}})</text>
+        <text catchtap="tabChange" class="{{current===1?'active':''}}" data-index="1">未交作业的学员({{NoExitList.length}})</text>
+    </view>
+
+    <view wx:if="{{current === 0}}">
+        <view class="td-single" wx:for="{{ExitList}}" wx:key="{{index}}">
+            <view>
+                <view><text>{{item.ProfileName}}</text></view>
+                <view class="_n"><text>学号：</text><text>{{item.ProfileNo}}</text></view>
+            </view>
+            <view class="td-pro">
+                <view class="_b" wx:for="{{item.rList}}" wx:key="{{item.RecordID}}" wx:for-index="proIndex" wx:for-item="proItem"
+                      catchtap="tryListen" data-id="{{proItem.RecordID}}" data-url="{{proItem.FileURL}}" data-name="{{item.ProfileName}}" data-index="{{proIndex}}">
+                    <view class="_s">
+                        <text>作品{{proIndex+1}}</text>
+                        <text class="_time">提交时间：{{moduleDate.getTimeDate(proItem.AddTime)}}</text>
+                        <text class="iconfont pause icon-pause" wx:if="{{tryParams.isPlay && tryParams.id === proItem.RecordID}}"></text>
+                        <text class="iconfont icon-playarrow" wx:else></text>
+                    </view>
+                    <text catchtap="markEvent" data-index="{{index}}" data-pro="{{proIndex}}" class="_mark iconfont icon-shoucang6" wx:if="{{proItem.blnMark === 0}}"></text>
+                    <text catchtap="markEvent" data-index="{{index}}" data-pro="{{proIndex}}" class="_mark _checked iconfont icon-collect-on" wx:else></text>
+                </view>
+            </view>
+
+        </view>
+    </view>
+
+    <view wx:if="{{current === 1}}">
+        <view class="tn-single" wx:for="{{NoExitList}}" wx:key="{{index}}">
+            <view>
+                <text>{{item.ProfileName}}</text>
+                <view class="_n"><text>学号：</text><text>{{item.ProfileNo}}</text></view>
+            </view>
+        </view>
+    </view>
+
+</view>
+
+<!--播放挂件-->
+<wu-audio-play id="audioPlay"
+            bind:audioEventPlay="audioEventPlay"
+            bind:audioEventPause="audioEventPause"
+            bind:audioEventStop="audioEventStop"
+            bind:audioEventEnd="audioEventEnd"
+            bind:audioEventDestroy="audioEventDestroy"
+            bind:audioEventError="audioEventError"></wu-audio-play>

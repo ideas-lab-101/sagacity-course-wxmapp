@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "",
+  "backgroundColor": "#f0f0f0",
+  "navigationBarBackgroundColor": "#FFF",
+  "navigationBarTextStyle": "black",
+  "disableScroll": false,
+  "usingComponents": {
+    "wux-input": "wux-weapp/input/index",
+    "wux-textarea": "wux-weapp/textarea/index"
+  }
+}

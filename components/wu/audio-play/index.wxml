@@ -1,0 +1,21 @@
+<!--音频播放-->
+<wu-animation-group wux-class="play-slider" in="{{ show }}" class-names="wux-animate--fadeIn">
+    <view class="_insert">
+        <view class="play-slider-info">
+            <text>{{info.userName}}</text>
+            <text>{{info.recordName}}</text>
+        </view>
+        <view class="play-slider-del">
+            <text class="_time">{{slider.current}}</text>
+            <slider bindchange="sliderChangeEvent"
+                    min="0" max="100"
+                    backgroundColor="#e9e9e9"
+                    block-size="14"
+                    block-color="#000000"
+                    activeColor="#000000"
+                    disabled="{{slider.disabled}}"
+                    value="{{slider.value}}"/>
+            <text class="_time">{{slider.duration}}</text>
+        </view>
+    </view>
+</wu-animation-group>

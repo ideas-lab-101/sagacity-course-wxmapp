@@ -1,0 +1,31 @@
+<wu-loading id="wu-loading" title="加载中..." />
+<wu-toast id="wu-toast"></wu-toast>
+
+<wu-navigation id="wu-navigation" title="{{nav.title}}({{students.totalRow}})"
+               transparent="{{nav.transparent}}"
+               model="{{nav.model}}">
+</wu-navigation>
+<view class="sm-container">
+    <view class="sm-single" wx:for="{{students.list}}" wx:key="{{index}}">
+        <view class="_name">{{item.ProfileName}}</view>
+        <view class="_del">
+            <view class="flex">
+                <view><text>学号：</text><text>{{item.ProfileNo}}</text></view>
+                <view><text>作品数：</text><text>{{item.rCount}}</text></view>
+            </view>
+            <view class="_d" wx:if="{{item.rList.length>0}}"><text>关联家长</text><text class="iconfont icon-doubleArrowDown"></text></view>
+        </view>
+        <!--关联档案-->
+        <view class="sm-relevance-box" wx:if="{{item.rList.length>0}}">
+            <view class="sm-relevance" wx:for="{{item.rList}}" wx:key="{{relIndex}}" wx:for-index="relIndex" wx:for-item="relItem">
+                <view class="flex _info">
+                    <image class="_image" mode="aspectFill" src="{{relItem.avatar_url}}" lazy-load/>
+                    <text>{{relItem.Label}}</text>
+                    <text>{{relItem.LoginName}}</text>
+                </view>
+                <view class="_btn" catchtap="kickOut" data-index="{{index}}" data-rel="{{relIndex}}" wx:if="{{userInfo.UserID !== relItem.UserID}}">踢出小组</view>
+            </view>
+        </view>
+    </view>
+    <view  wx:if="{{students.lastPage}}" class="noDate">额， 数据到底了!</view>
+</view>

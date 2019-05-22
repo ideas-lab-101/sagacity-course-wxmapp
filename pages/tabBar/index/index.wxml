@@ -1,0 +1,67 @@
+<wxs src="./index.wxs" module="moduleIndex" />
+<wxs src="../../../wxs/date.wxs" module="moduleDate" />
+
+<view class="index-container">
+
+  <view style="padding-top: {{deviceStatusBarHeight}}px;" class="index-title" id="indexTitle"><view>我的小组</view></view>
+
+  <view class="flex top my-container" style="height: {{swiperHeight}};">
+
+    <block wx:if="{{teamList.length>0}}">
+      <swiper class="my-swiper" next-margin="15px" bindchange="teamSwiperChangeEvent" current="{{teamCurrent}}">
+        <block wx:for="{{teamList}}" wx:key="{{index}}">
+          <swiper-item>
+            <view class="mg-right-box {{moduleIndex.getTeamInfo(index, one, two, three).blnAuth === 1 ? 'auth' : ''}}">
+
+              <view class="mg-right-num"><text>{{index+1}}</text></view>
+              <view class="_set" hover-class="event-hover-class-view" catchtap="goTeamSet" data-index="{{index}}"><text class='iconfont icon-setting'></text> 组信息设置</view>
+              <view class="_title">
+                <text>{{item.TeamName}}</text>
+                <text wx:if="{{(moduleIndex.getTeamInfo(index, one, two, three).blnAuth) === 1}}" class="iconfont icon-shenfenzhengzhengmian"></text>
+              </view>
+              <view class="_desc color-999">{{moduleIndex.getTeamInfo(index, one, two, three).TeamDesc}}</view>
+
+
+              <!--小组功能-->
+              <view class="mg-apply">
+                <view hover-class="basic-hover-class-view" catchtap="goTaskManage"><text>作业管理</text><text class="_tip">作业总数：({{moduleIndex.getTeamInfo(index, one, two, three).rCount}})</text></view>
+                <view hover-class="basic-hover-class-view" catchtap="goStudentsManage"><text>学生管理</text><text class="_tip">学员数量：({{moduleIndex.getTeamInfo(index, one, two, three).pCount}})</text></view>
+                <view hover-class="basic-hover-class-view" catchtap="goResourceManage">
+                  <text>资源管理</text><text class="_tip">选中数/总数：({{moduleIndex.getTeamInfo(index, one, two, three).cCount}}/{{moduleIndex.getTeamInfo(index, one, two, three).aCount}})</text>
+                </view>
+              </view>
+              <view class="mg-link ">
+                <view class="_tip" wx:if="{{moduleIndex.getTeamInfo(index, one, two, three).cCount <= 0}}">如果没启用资源，就不能发布作业。请进入资源管理先选择资源!</view>
+                <view class="mg-link-btn color-primary-back disabled" wx:if="{{moduleIndex.getTeamInfo(index, one, two, three).cCount <= 0}}">发布作业</view>
+                <view class="mg-link-btn color-primary-back" wx:else catchtap="goIssueTask">发布作业</view>
+              </view>
+
+              <!--小组动态-->
+              <view class="mg-dynamic" wx:if="{{moduleIndex.getLiveList(index, one, two, three).length>0}}">
+                <view class="mg-dynamic-title">小组动态</view>
+                <view class="mg-dynamic-single" wx:for="{{moduleIndex.getLiveList(index, one, two, three)}}" wx:key="{{index}}">
+                  <image class="_image" lazy-load src="{{item.avatar_url}}" mode="aspectFill"></image>
+                  <view class="mg-dynamic-del">
+                    <view class="flex between">
+                      <text class="_name">{{item.Caption}}</text>
+                      <text class="_time">{{moduleDate.resolveTime(item.AddTime)}}</text>
+                    </view>
+                    <view class="_thing">{{item.LiveInfo}}</view>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </block>
+
+    <view wx:else class="nodate">
+      <view class="color-999">你还没有管理任何学习小组!</view>
+    </view>
+
+  </view>
+
+
+</view>

@@ -1,0 +1,31 @@
+<!--play.wxml-->
+<wu-loading id="wu-loading" />
+<wux-toast id="wux-toast" />
+
+<view class="container">
+
+    <!--<wu-navigation id="wu-navigation" title=""></wu-navigation>-->
+
+    <view class="accredit-box">
+        <view class="_insert">
+        <form bindsubmit="formSubmit">
+            <image class="_image" lazy-load src="/assets/images/logo.png" mode="widthFix"></image>
+            <view class="_d">
+                <wux-input class="def" placeholder="请输入手机号" placeholder-style="color:#b4b4b4;" wux-class="accredit-input"
+                           type="number" controlled value="{{form.username}}" name="username"  bind:change="setValueEvent" data-name="form.username"/>
+            </view>
+            <view class="_d">
+                <wux-input class="def" placeholder="请输入密码" placeholder-style="color:#b4b4b4;" wux-class="accredit-input"
+                           type="text" controlled password value="{{form.password}}" name="password"  bind:change="setValueEvent" data-name="form.password"/>
+            </view>
+            <view class="_d accredit-remember" catchtap="rememberMe">
+                <text class="_label {{remember?'checked':''}}"></text><text>记住账号密码</text>
+            </view>
+            <button class="_button color-primary-back" hover-class="color-primary-back-active" plain form-type="submit">用户登录</button>
+        </form>
+        </view>
+    </view>
+
+</view>
+
+

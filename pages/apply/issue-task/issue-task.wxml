@@ -1,0 +1,58 @@
+<wu-loading id="wu-loading" />
+<wu-toast id="wu-toast" />
+
+
+<wu-navigation id="wu-navigation" title="{{nav.title}}"
+               transparent="{{nav.transparent}}"
+               model="{{nav.model}}">
+</wu-navigation>
+
+<view class="it-box">
+        <form bindsubmit="formSubmit">
+            <view class="_d">
+                <view class="_label"><text>作业说明</text></view>
+                <view wx:if="{{!textareaReplace}}">
+                    <wux-textarea placeholder="请详细填写作业说明" placeholder-style="color:#b4b4b4;" wux-class="it-input"
+                                  type="text" controlled value="{{form.content}}" name="content"  bind:change="setValueEvent" data-name="form.content"/>
+                </view>
+                <view wx:else class="_replace">{{form.content}}</view>
+            </view>
+            <view class="_d">
+                <view class="_label"><text>添加章节</text><text class="iconfont icon-jia _add" catchtap="openCourseEvent"></text></view>
+                <view class="it-lesson">
+                    <txt wx:if="{{lesson.length<=0}}" class="_noData">暂时未添加章节</txt>
+                    <view wx:else>
+                        <view wx:for="{{lesson}}" wx:key="{{index}}"  class="it-lesson-single">
+                            <text>{{item.DataName}}</text>
+                            <text class="iconfont icon-guanbi" catchtap="delLesson" data-index="{{index}}"></text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="_d">
+                <view class="flex between">
+                    <text>截止时间</text>
+                    <wu-switch name="positive" slot="footer" color="balanced" value="{{ switchVal }}" bind:change="timeChange"/>
+                </view>
+                <view class="it-cont" wx:if="{{switchVal}}">
+                    <picker mode="multiSelector" value="{{dateTime}}" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+                        <view class="it-cont-picker">
+                            {{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{day}}
+                        </view>
+                    </picker>
+                    <text>|</text>
+                    <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+                        <view class="it-cont-picker">{{time}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="_d _noBack">
+                <button class="_button color-primary-back" hover-class="color-primary-back-active" plain form-type="submit">确定发布</button>
+            </view>
+        </form>
+</view>
+
+
+<!--章节选择-->
+<course-disperse id="course-disperse" bindhideDisperse="closeCourseEvent"></course-disperse>
+

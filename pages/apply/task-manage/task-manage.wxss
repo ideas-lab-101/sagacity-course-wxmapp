@@ -1,0 +1,125 @@
+page{
+    background-color: #f7f7f7;
+}
+
+.noDate{
+    color: #999999; font-size: 20rpx; padding: 40rpx; text-align: center;
+}
+
+.data-single {
+    text-align: left;
+}
+.data-single>._insert{
+    padding: 0rpx 20rpx 40rpx 80rpx;
+    position: relative;
+}
+.data-single-del{
+    padding: 40rpx;
+    background-color: white;
+    position: relative;
+}
+.data-single>._insert::after{
+    content: "";
+    position: absolute;
+    width: 1rpx;
+    height: 100%;
+    background-color: #733429;
+    left: 40rpx;
+    top: 0;
+    opacity: 0.3;
+}
+.data-single>._insert::before{
+    content: "";
+    position: absolute;
+    width: 12rpx;
+    height: 12rpx;
+    border-radius: 100rpx;
+    background-color: #733429;
+    left: 35rpx;
+    top: 12rpx;
+}
+
+.data-single-date-box{
+    height: 160rpx; position: relative;
+}
+.data-single-date{
+    padding: 60rpx 20rpx 0; font-size: 34rpx; font-weight: 500; height: 100rpx;
+    display: inline-block; position: relative; left: 0; right: 0;
+}
+.data-single-date-sticky-box{
+    height: 160rpx; position: relative; z-index: 20; padding: 0 20rpx;
+}
+.data-single-date-sticky{
+    padding: 60rpx 20rpx 0; font-size: 34rpx; font-weight: 500; height: 100rpx;
+    position: fixed; left: 0; right: 0; top: 0; z-index: 20; background-color: #f7f7f7;
+}
+.data-single-date-sticky.rel{
+    position: relative; top: 0 !important; left: -20rpx; right: 0;
+}
+.data-single-date-sticky ._filter{
+    position: absolute; right: 30rpx; top: 50rpx; font-size: 26rpx; font-weight: normal; padding: 20rpx 40rpx;
+}
+.data-single-date-sticky ._filter view, .data-single-date-sticky ._filter text{ display: inline-block; position: relative; }
+.data-single-date-sticky ._filter view::after, .data-single-date-sticky ._filter view::before{
+    content: ""; position: absolute; left: -30rpx; bottom: 8rpx; width: 4rpx; height: 22rpx; border-radius: 100rpx; background-color: #000000;
+    transform: skewX(-20deg);
+}
+.data-single-date-sticky ._filter view::before{ left: auto; right: -30rpx;}
+.data-single-date-sticky ._filter text::after, .data-single-date-sticky ._filter text::before{
+    content: ""; position: absolute; left: -50rpx; bottom: 12rpx; width: 4rpx; height: 12rpx; border-radius: 100rpx; background-color: #733429;
+    transform: skewX(-20deg);
+}
+.data-single-date-sticky ._filter text::before{ left: auto; right: -50rpx;}
+
+.data-single-date-sticky.rel ._filter{
+    right: -10rpx;
+}
+.data-single-date-m{
+    font-size: 40rpx; display: inline-block; vertical-align: middle;
+}
+.data-single-date-y{
+    font-size: 28rpx; margin-left: 20rpx; display: inline-block; color: #999999; vertical-align: bottom;
+}
+
+.data-single-time{
+    font-size: 24rpx;
+    color: #733429;
+    padding-bottom: 10rpx;
+}
+.data-single-time>text{ height: 40rpx; line-height: 40rpx;}
+.data-single-del{ position: relative; }
+.data-single-del ._name{
+    font-size: 30rpx; padding-right: 96rpx;
+}
+.data-single-del ._content{
+    font-size: 28rpx; margin-top: 20rpx; padding-right: 96rpx;
+}
+.data-single-del ._content label{ color: #999999; font-size: 22rpx; }
+.data-single-del ._content.noTop{ margin-top: 0;}
+.data-single-del ._num{
+    margin-top: 20rpx;
+    font-size: 20rpx;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.data-single-del ._del{
+    margin-top: 20rpx; font-size: 24rpx; color: #733429;display: flex; align-items: center; justify-content: flex-end;
+}
+.data-single-del ._del .iconfont{
+    font-size: 22rpx; color: #dedede;
+}
+.data-single-del ._star{
+    position: absolute; right: 25rpx; top: 15rpx; z-index: 10; color: #ff3e02; text-shadow: 0 10rpx 25rpx rgba(255, 62, 2, 0.3);
+}
+.data-single-del ._star .iconfont{ font-size: 45rpx; }
+
+.tm-opera{
+    position: absolute; right: 40rpx; top: 40rpx; display: flex; flex-direction: column;
+    justify-content: space-between; align-items: center;
+}
+.tm-del{
+    position: absolute; right: 20rpx; top: -70rpx; font-size: 24rpx; padding: 20rpx; color: #999;
+}
+.tm-del>.iconfont{ font-size: 28rpx; }

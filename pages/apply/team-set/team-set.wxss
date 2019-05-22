@@ -1,0 +1,46 @@
+
+.form-item{
+    padding: 40rpx;
+}
+.form-item ._title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 22rpx;
+    padding-bottom: 30rpx;
+    position: relative;
+}
+.form-item ._title .iconfont{
+    position: absolute; z-index: 10;
+    right: 0; top: -20rpx;
+    font-size: 70rpx;
+}
+.form-item ._title .iconfont:active{
+    color: black;
+}
+.form-item._be{
+    display: flex; align-items: center;
+}
+.form-item._be ._title{
+    padding-bottom: 0;
+}
+.form-item._be ._dis{
+    font-size: 34rpx; font-weight: 500; margin-left: 40rpx;
+}
+.form-item-s text{
+    display: inline-block; padding: 15rpx 40rpx; border-radius: 500rpx; background-color: #e9f9f0; margin-right: 20rpx; margin-bottom: 20rpx;
+}
+.form-item-s text.active{
+    background-color: #00d85a; color: white;
+}
+
+.form-btn{
+    border: 0 !important; color: white !important; font-size: 32rpx; border-radius: 4rpx; padding: 8rpx;
+}
+
+.inputClass{
+    border-bottom: 1rpx solid #eee;
+}
+.inputClass input, .inputClass textarea{
+    padding: 20rpx 0; font-size: 30rpx; color: black;
+}

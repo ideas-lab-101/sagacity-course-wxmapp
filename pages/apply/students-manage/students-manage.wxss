@@ -1,0 +1,45 @@
+.sm-container{
+    padding: 0 40rpx;
+}
+
+.sm-single{
+    padding: 20rpx 0;
+}
+.sm-single ._name{
+    font-weight: 500;
+}
+.sm-single ._del{
+    display: flex; align-items: center; justify-content: space-between; margin-top: 20rpx;
+}
+.sm-single ._del view{
+    margin-right: 40rpx;
+    font-size: 24rpx;
+    color: #999999;
+}
+.sm-single ._del view:last-child{ margin-right: 0; }
+.sm-single ._del ._d text{ margin-left: 10rpx; }
+.noDate{
+    color: #999999; font-size: 20rpx; padding: 40rpx; text-align: center;
+}
+
+
+.sm-relevance-box{
+    padding: 20rpx; background-color: #f7f7f7; margin-top: 20rpx; position: relative;
+}
+.sm-relevance-box::after{
+    content: ""; position: absolute; right: 60rpx; top: -10rpx;
+    width:0;
+    height:0;
+    border-left: 12rpx solid transparent;
+    border-right: 12rpx solid transparent;
+    border-bottom: 10rpx solid #f7f7f7;
+}
+.sm-relevance{
+    display: flex; align-items: center; justify-content: space-between; padding: 12rpx 0;
+}
+.sm-relevance ._image{
+    width: 50rpx; height: 50rpx; border-radius: 100rpx;
+}
+.sm-relevance ._info{ font-size: 26rpx;}
+.sm-relevance ._info text{ margin-left: 15rpx;}
+.sm-relevance ._btn{ color: #c8c8c8; border: 1rpx solid #c8c8c8; display: inline-block; padding: 8rpx 16rpx; border-radius: 2rpx; font-size: 24rpx; }

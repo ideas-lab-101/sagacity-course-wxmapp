@@ -1,0 +1,25 @@
+<wu-loading id="wu-loading" title="加载中..." />
+<wu-toast id="wu-toast"></wu-toast>
+
+<wu-navigation id="wu-navigation" title="{{nav.title}}"
+               transparent="{{nav.transparent}}"
+               model="{{nav.model}}">
+</wu-navigation>
+<view class="rm-container">
+
+    <view class="rm-single" wx:for="{{courseList}}" wx:key="{{courseIndex}}" wx:for-index="courseIndex" wx:for-item="courseItem">
+        <view class="index-book-box" data-id="{{courseItem.CourseID}}">
+            <view class="_book"><image src="{{courseItem.CoverURL}}" mode="aspectFill"></image></view>
+        </view>
+        <view class="rm-info">
+            <view class="_name">
+                <text>{{courseItem.CourseName}}</text>
+                <wu-switch name="positive" slot="footer" color="balanced" value="{{ courseItem.intState===1?true:false}}" bind:change="controlFixEvent" capture-bind:tap="captureFix" data-index="{{courseIndex}}"/>
+            </view>
+            <view class="_desc">{{courseItem.Desc}}</view>
+            <view class="_link" catchtap="goTaskList" data-id="{{courseItem.CourseID}}" data-name="{{courseItem.CourseName}}"><text class="_t">详情</text><text class="iconfont icon-zuo"></text></view>
+        </view>
+
+    </view>
+
+</view>

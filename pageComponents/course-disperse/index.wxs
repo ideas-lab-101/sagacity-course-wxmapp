@@ -1,0 +1,14 @@
+
+var inArray = function (DataID, DataArray) {
+  var index = -1
+  DataArray.forEach(function(item, i) {
+    if(item.DataID == DataID) {
+      index = i
+    }
+  })
+  return index != -1
+}
+
+module.exports = {
+  inArray: inArray
+}

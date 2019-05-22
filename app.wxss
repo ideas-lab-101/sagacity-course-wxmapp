@@ -1,0 +1,39 @@
+@import '/assets/styles/cloud-icon.wxss';
+@import '/assets/styles/color.wxss';
+
+page{
+  height: 100%;
+  background-color: white;
+  position: relative;
+  font-size: 30rpx;
+  font-family: "Times New Roman", -apple-system-font, "Helvetica Neue", sans-serif ;
+}
+
+.relative { position: relative;}
+
+.flex{
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+}
+.flex.wrap {
+  flex-wrap: wrap;
+}
+.flex.between{
+  justify-content: space-between;
+}
+.flex.around{
+  justify-content: space-around;
+}
+.flex.top{
+  align-items: flex-start;
+}
+.flex.bottom{
+  align-items: flex-end;
+}
+.flex.end{
+  justify-content: flex-end;
+}
+.flex.column{
+  flex-direction: column;
+}

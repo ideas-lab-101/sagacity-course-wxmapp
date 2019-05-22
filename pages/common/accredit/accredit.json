@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "用户授权",
+  "backgroundColor": "#f0f0f0",
+  "navigationBarBackgroundColor": "#FFF",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": false,
+  "disableScroll": true,
+  "usingComponents": {
+    "wux-input": "wux-weapp/input/index",
+    "wux-toast": "wux-weapp/toast/index"
+  }
+}

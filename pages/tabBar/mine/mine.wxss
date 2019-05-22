@@ -1,0 +1,208 @@
+
+.mine-background{
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+.mine-background>._shadow{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 40%;
+    left: 0;
+    bottom: 0;
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), white);
+}
+.mine-background image{
+    width: 100%;
+    height: 70vh;
+    filter: blur(2px);
+    transform: scale(1.1, 1.1);
+}
+
+.mine-scroll {
+    height:100vh;
+    position:absolute;
+    width:100%;
+    left:0;
+    top:0;
+    z-index:10;
+}
+
+.mine-hasinfo{
+    padding-top: 35vh;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    position: relative;
+    transition: transform 1s;
+}
+
+.mine-top-box {
+    position: relative;
+    background-color: white;
+    box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.08);
+    padding-bottom: 30rpx;
+}
+
+.mine-top-box>._avatar {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    height: 40vh;
+}
+
+.mine-top-box>._avatar::after {
+    content: "";
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 360rpx solid transparent;
+    border-left: 2000rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.mine-top-box>._avatar::before {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 480rpx solid transparent;
+    border-right: 700rpx solid rgba(0, 0, 0, 0.1);
+}
+
+.mine-top-box>._avatar ._blurImg {
+    filter: blur(20px);
+    transform: scale(1.1, 1.1);
+}
+
+
+.covered{
+    position: absolute;
+    z-index: 22;
+    right: 20rpx;
+    top: 29vh;
+    display: flex;
+    align-items: center;
+    padding: 10rpx;
+    color: white;
+}
+.covered .iconfont {
+    font-size: 50rpx;
+}
+
+.uerinfo {
+    text-align: center;
+    padding-bottom: 60rpx;
+    position: relative;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border-bottom: 1rpx solid #eee;
+}
+
+.avatar {
+    position: absolute;
+    top: -90rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.avatar-img {
+    width: 170rpx;
+    height: 170rpx;
+    border-radius: 50%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nickname {
+    margin-top: 120rpx;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 45rpx;
+    font-weight: 500;
+    position: relative;
+}
+.nickname>._sign{
+    margin-top: 20rpx;
+    font-size: 26rpx;
+    position: relative;
+}
+.nickname>._edit{
+    font-size: 24rpx; color: #999; display: inline-block; white-space:nowrap; position: absolute; z-index: 10; right: -120rpx; bottom: -4rpx; font-weight: normal; padding: 10rpx 20rpx;
+}
+.nickname>._edit._o{ right: -80rpx;}
+.nickSign{ margin-top: 20rpx; font-size: 24rpx;  color: #999999; }
+
+
+/*功能格子*/
+
+.item-box {
+    margin-top: 60rpx;
+}
+.item {
+    display: flex;
+    align-items: center;
+    height: 96rpx;
+    font-size: 28rpx;
+    padding: 0 30rpx;
+}
+.item.logout{
+    margin: 40rpx;
+    color: white;
+    background-color: #f5431a;
+    justify-content: center;
+}
+.item.logout .item-text{
+    flex: none;
+}
+.logout-hover{
+    background-color: #f46443;
+}
+.item .iconfont {
+    font-size: 36rpx;
+}
+.item ._l {
+    font-size: 28rpx; color: #dedede;
+}
+.item ._num {
+    font-size: 28rpx; color: white; background-color: #f75f03; display: inline-block; padding: 4rpx 14rpx; border-radius: 100rpx;
+    margin-right: 10rpx;
+}
+.item-text {
+    margin-left: 20rpx; flex: 1;
+}
+
+.item-state {
+    font-size: 22rpx;
+    color: white;
+    background-color: #f75f03;
+    display: inline-block;
+    padding: 4rpx 10rpx;
+    border-radius: 100rpx;
+    line-height: 1;
+}
+
+.shareBtn {
+    text-align: left;
+    border: 0 !important;
+    color: black !important;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+}
+
+.shareBtn::after, .shareBtn:before {
+    border: 0 !important;
+}
+
+.shareBtn .iconfont{
+    font-size: 38rpx;
+}

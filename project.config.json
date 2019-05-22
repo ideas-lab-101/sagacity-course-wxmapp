@@ -1,0 +1,70 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.6",
+	"appid": "wx462702b8d348f345",
+	"projectname": "sagacity_course_teacher",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": -1,
+					"name": "mine",
+					"pathName": "pages/tabBar/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "task-detail",
+					"pathName": "pages/apply/task-detail/task-detail",
+					"query": "id=642&teamid=5&name=%E5%AE%9A%E9%A3%8E%E6%B3%A2%20-%20%E8%8B%8F%E8%BD%BC",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "issue-task",
+					"pathName": "pages/apply/issue-task/issue-task",
+					"query": "id=1",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,28 @@
+<wu-loading id="wu-loading" title="加载中..." />
+<wu-toast id="wu-toast" />
+
+<wu-navigation id="wu-navigation" title="{{nav.title}}"
+               transparent="{{nav.transparent}}"
+               model="{{nav.model}}">
+</wu-navigation>
+
+
+<view class="ts-container">
+    <form bindsubmit="formSubmit">
+        <view class="form-item">
+            <label class="_title">小组名称：</label>
+            <wux-input placeholder="填写小组名称" placeholder-style="color: #dedede" wux-class="inputClass"
+                       value="{{form.TeamName}}" name="TeamName" controlled bind:change="setValueEvent" data-name="form.TeamName"/>
+        </view>
+
+        <view class="form-item">
+            <label class="_title">描述：</label>
+            <wux-textarea placeholder="填写小组描述" placeholder-style="color: #dedede" wux-class="inputClass"
+                          value="{{form.TeamDesc}}" name="TeamDesc" controlled autoHeight bind:change="setValueEvent" data-name="form.TeamDesc"/>
+        </view>
+
+        <view class="form-item">
+            <button form-type="submit" plain class="form-btn color-primary-back" hover-class="color-primary-back-active">确定修改</button>
+        </view>
+    </form>
+</view>
