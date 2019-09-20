@@ -98,7 +98,7 @@ Page({
       state: ''
     }).then(res => {
       this.setData({
-        courseList: res.data.courseList
+        courseList: res.data.list
       })
     })
   },

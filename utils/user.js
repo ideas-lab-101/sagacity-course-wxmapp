@@ -50,7 +50,7 @@ class user {
     checkToken() {
       return new Promise( (resolve, reject) => {
         wx.request({
-          url: `${host}wxmanager/system/checkUser`,
+          url: `${host}wxmanager/system/v2/checkUser`,
           header: { 'content-type': 'application/json'},
           data: { token: this.authToken},
           method: 'GET',
@@ -134,7 +134,7 @@ class user {
         })
       const promise = new Promise( (resolve, reject) => {
         wx.request({
-            url: `${host}wxmanager/system/login`,
+            url: `${host}wxmanager/system/v2/login`,
             header: { 'content-type': 'application/x-www-form-urlencoded'},
             data: {
               username: username,
@@ -173,7 +173,7 @@ class user {
     _logout() {
       return new Promise( (resolve, reject) => {
         wx.request({
-          url: `${host}wxmanager/system/logout`,
+          url: `${host}wxmanager/system/v2/logout`,
           header: { 'content-type': 'application/x-www-form-urlencoded'},
           data: {
             token: this.authToken

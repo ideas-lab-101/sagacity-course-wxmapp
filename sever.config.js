@@ -1,7 +1,7 @@
 //配置文件
-const version = '1.0.0'
-const host = "https://course.ideas-lab.cn/"
-//const host = "http://mula.tun.cdqidi.cn/"
+const version = '2.0.0'
+// const host = "https://course.ideas-lab.cn/"
+const host = "http://xiaode.ideas-lab.cn/"
 
 const resourseUrl = host + 'resource/'
 const qiniuUploadUrl= 'https://up-z2.qbox.me'

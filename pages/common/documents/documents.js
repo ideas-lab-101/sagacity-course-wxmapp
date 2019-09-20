@@ -34,9 +34,9 @@ Page({
     _initData: function (id) {
         getInfoContent({infoID: id}).then((res) => {
           console.log(res)
-          this.setData({info: res.data, 'nav.title': res.data.Title})
+          this.setData({info: res.data.info, 'nav.title': res.data.info.Title})
           // 文稿编译
-          WxParse.wxParse('detail', 'html', res.data.Content || '<p style="font-size: 14px;">暂无介绍</p>', this, 5)
+          WxParse.wxParse('detail', 'html', res.data.info.Content || '<p style="font-size: 14px;">暂无介绍</p>', this, 5)
         })
     }
 

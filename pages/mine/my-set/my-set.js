@@ -42,7 +42,7 @@ Page({
       getInfoList({
         channelID: 3
       }).then((res) => {
-        this.setData({documents: res.list})
+        this.setData({documents: res.data.list})
       })
     }
 

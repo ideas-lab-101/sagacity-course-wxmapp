@@ -6,7 +6,7 @@ const { fetch } = require('./fetch')
 // 获得文档列表
 export function getInfoList(data) { // 分页参数
   return fetch({
-    url: 'wxmanager/info/getInfoList',
+    url: 'wxmanager/info/v2/getInfoList',
     data: data || {},
     method: 'GET'
   })
@@ -15,7 +15,7 @@ export function getInfoList(data) { // 分页参数
 // 获得文档详情
 export function getInfoContent(data) {  // infoID token
   return fetch({
-    url: 'wxmanager/info/getInfoContent',
+    url: 'wxmanager/info/v2/getInfoContent',
     data: data || {},
     method: 'GET'
   })

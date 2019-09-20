@@ -85,7 +85,7 @@ Page({
     }
 
     let loadIndex = null
-    if(index> this.data.teamCurrent && index+1 <= this.data.teamList.length-1) {
+    if (index > this.data.teamCurrent && index + 1 <= this.data.teamList.length-1) {
       loadIndex = index+1
     }
     if(index < this.data.teamCurrent && index-1 >=0 ) {

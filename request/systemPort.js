@@ -6,7 +6,7 @@ const { fetch } = require('./fetch')
 // 登陆接口
 export function login(data) { // username password
   return fetch({
-    url: 'wxmanager/system/login',
+    url: 'wxmanager/system/v2/login',
     data: data || {},
     method: 'POST'
   })
@@ -16,7 +16,7 @@ export function login(data) { // username password
 // 注销接口
 export function logout(data) { // token
   return fetch({
-    url: 'wxmanager/system/logout',
+    url: 'wxmanager/system/v2/logout',
     data: data || {},
     method: 'POST'
   })
@@ -26,7 +26,7 @@ export function logout(data) { // token
 // 检查用户（在小程序打开中调用，可检查用户登陆过程状态，以及新消息通知）
 export function checkUser(data) { // token
   return fetch({
-    url: 'wxmanager/system/checkUser',
+    url: 'wxmanager/system/v2/checkUser',
     data: data || {},
     method: 'GET'
   })
@@ -36,7 +36,7 @@ export function checkUser(data) { // token
 // 修改密码
 export function changePassword(data) { // token oldPwd newPwd
   return fetch({
-    url: 'wxmanager/system/changePassword',
+    url: 'wxmanager/system/v2/changePassword',
     data: data || {},
     method: 'POST'
   })
@@ -45,7 +45,7 @@ export function changePassword(data) { // token oldPwd newPwd
 // 扫码登陆
 export function scanLogin(data) { // token key
   return fetch({
-    url: 'wxmanager/system/scanLogin',
+    url: 'wxmanager/system/v2/scanLogin',
     data: data || {},
     method: 'POST'
   })

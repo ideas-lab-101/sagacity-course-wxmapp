@@ -24,7 +24,7 @@
 
               <!--小组功能-->
               <view class="mg-apply">
-                <view hover-class="basic-hover-class-view" catchtap="goTaskManage"><text>作业管理</text><text class="_tip">作业总数：({{moduleIndex.getTeamInfo(index, one, two, three).rCount}})</text></view>
+                <view hover-class="basic-hover-class-view" catchtap="goTaskManage"><text>作业管理</text><text class="_tip">作业总数：({{moduleIndex.getTeamInfo(index, one, two, three).tCount}})</text></view>
                 <view hover-class="basic-hover-class-view" catchtap="goStudentsManage"><text>学生管理</text><text class="_tip">学员数量：({{moduleIndex.getTeamInfo(index, one, two, three).pCount}})</text></view>
                 <view hover-class="basic-hover-class-view" catchtap="goResourceManage">
                   <text>资源管理</text><text class="_tip">选中数/总数：({{moduleIndex.getTeamInfo(index, one, two, three).cCount}}/{{moduleIndex.getTeamInfo(index, one, two, three).aCount}})</text>
