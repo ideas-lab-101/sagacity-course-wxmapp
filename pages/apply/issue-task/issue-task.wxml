@@ -23,7 +23,7 @@
                     <txt wx:if="{{lesson.length<=0}}" class="_noData">暂时未添加章节</txt>
                     <view wx:else>
                         <view wx:for="{{lesson}}" wx:key="{{index}}"  class="it-lesson-single">
-                            <text>{{item.DataName}}</text>
+                            <text>{{item.data_name}}</text>
                             <text class="iconfont icon-guanbi" catchtap="delLesson" data-index="{{index}}"></text>
                         </view>
                     </view>

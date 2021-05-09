@@ -14,9 +14,9 @@ export function getCourseList(data) { // teamID state(选)
 
 
 // 获得课程章节
-export function GetLessonList(data) { // courseID page orderType(ASC|DESC)
+export function getLessonList(data) { // courseID page orderType(ASC|DESC)
   return fetch({
-    url: 'wxmanager/course/v2/GetLessonList',
+    url: 'wxmanager/course/v2/getLessonList',
     data: data || {},
     method: 'GET'
   })

@@ -16,18 +16,18 @@
               <view class="mg-right-num"><text>{{index+1}}</text></view>
               <view class="_set" hover-class="event-hover-class-view" catchtap="goTeamSet" data-index="{{index}}"><text class='iconfont icon-setting'></text> 组信息设置</view>
               <view class="_title">
-                <text>{{item.TeamName}}</text>
+                <text>{{item.team_name}}</text>
                 <text wx:if="{{(moduleIndex.getTeamInfo(index, one, two, three).blnAuth) === 1}}" class="iconfont icon-shenfenzhengzhengmian"></text>
               </view>
-              <view class="_desc color-999">{{moduleIndex.getTeamInfo(index, one, two, three).TeamDesc}}</view>
+              <view class="_desc color-999">{{moduleIndex.getTeamInfo(index, one, two, three).team_desc}}</view>
 
 
               <!--小组功能-->
               <view class="mg-apply">
-                <view hover-class="basic-hover-class-view" catchtap="goTaskManage"><text>作业管理</text><text class="_tip">作业总数：({{moduleIndex.getTeamInfo(index, one, two, three).tCount}})</text></view>
-                <view hover-class="basic-hover-class-view" catchtap="goStudentsManage"><text>学生管理</text><text class="_tip">学员数量：({{moduleIndex.getTeamInfo(index, one, two, three).pCount}})</text></view>
+                <view hover-class="basic-hover-class-view" catchtap="goTaskManage"><text>作业管理</text><text class="_tip">作业总数：({{moduleIndex.getTeamInfo(index, one, two, three).task_count}})</text></view>
+                <view hover-class="basic-hover-class-view" catchtap="goStudentsManage"><text>学生管理</text><text class="_tip">学员数量：({{moduleIndex.getTeamInfo(index, one, two, three).profile_count}})</text></view>
                 <view hover-class="basic-hover-class-view" catchtap="goResourceManage">
-                  <text>资源管理</text><text class="_tip">选中数/总数：({{moduleIndex.getTeamInfo(index, one, two, three).cCount}}/{{moduleIndex.getTeamInfo(index, one, two, three).aCount}})</text>
+                  <text>资源管理</text><text class="_tip">选中数/总数：({{moduleIndex.getTeamInfo(index, one, two, three).re1_count}}/{{moduleIndex.getTeamInfo(index, one, two, three).re2_count}})</text>
                 </view>
               </view>
               <view class="mg-link ">
@@ -43,10 +43,10 @@
                   <image class="_image" lazy-load src="{{item.avatar_url}}" mode="aspectFill"></image>
                   <view class="mg-dynamic-del">
                     <view class="flex between">
-                      <text class="_name">{{item.Caption}}</text>
-                      <text class="_time">{{moduleDate.resolveTime(item.AddTime)}}</text>
+                      <text class="_name">{{item.caption}}</text>
+                      <text class="_time">{{moduleDate.resolveTime(item.add_time)}}</text>
                     </view>
-                    <view class="_thing">{{item.LiveInfo}}</view>
+                    <view class="_thing">{{item.live_info}}</view>
                   </view>
                 </view>
               </view>

@@ -8,16 +8,16 @@
 <view class="rm-container">
 
     <view class="rm-single" wx:for="{{courseList}}" wx:key="{{courseIndex}}" wx:for-index="courseIndex" wx:for-item="courseItem">
-        <view class="index-book-box" data-id="{{courseItem.CourseID}}">
-            <view class="_book"><image src="{{courseItem.CoverURL}}" mode="aspectFill"></image></view>
+        <view class="index-book-box" data-id="{{courseItem.course_id}}">
+            <view class="_book"><image src="{{courseItem.cover_url}}" mode="aspectFill"></image></view>
         </view>
         <view class="rm-info">
             <view class="_name">
-                <text>{{courseItem.CourseName}}</text>
-                <wu-switch name="positive" slot="footer" color="balanced" value="{{ courseItem.intState===1?true:false}}" bind:change="controlFixEvent" capture-bind:tap="captureFix" data-index="{{courseIndex}}"/>
+                <text>{{courseItem.course_name}}</text>
+                <wu-switch name="positive" slot="footer" color="balanced" value="{{ courseItem.state===1?true:false}}" bind:change="controlFixEvent" capture-bind:tap="captureFix" data-index="{{courseIndex}}"/>
             </view>
-            <view class="_desc">{{courseItem.Desc}}</view>
-            <view class="_link" catchtap="goTaskList" data-id="{{courseItem.CourseID}}" data-name="{{courseItem.CourseName}}"><text class="_t">详情</text><text class="iconfont icon-zuo"></text></view>
+            <view class="_desc">{{courseItem.course_desc}}</view>
+            <view class="_link" catchtap="goTaskList" data-id="{{courseItem.course_id}}" data-name="{{courseItem.course_name}}"><text class="_t">详情</text><text class="iconfont icon-zuo"></text></view>
         </view>
 
     </view>

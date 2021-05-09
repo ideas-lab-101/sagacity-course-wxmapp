@@ -8,11 +8,11 @@
 <view class="tm-container">
 
     <view class="tm-single" wx:for="{{task.list}}" wx:key="{{index}}" catchtap="goTaskDetail" data-index="{{index}}">
-        <image class="_image" mode="aspectFill" src="{{item.CoverURL}}" lazy-load/>
+        <image class="_image" mode="aspectFill" src="{{item.cover_url}}" lazy-load/>
         <view class="_del">
-            <view class="_name">{{item.DataName}}</view>
-            <text class="_num">{{item.CourseName}}</text>
-            <view class="_num">已交作业数：{{item.TotalRecord}}</view>
+            <view class="_name">{{item.data_name}}</view>
+            <text class="_num">{{item.course_name}}</text>
+            <view class="_num">已交作业数：{{item.totalRecord}}</view>
         </view>
         <view class="_link">
             <text class="iconfont icon-zuo"></text>

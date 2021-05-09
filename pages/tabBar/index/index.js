@@ -123,24 +123,24 @@ Page({
         /**
          *  加载当前页的数据
          */
-        this._getTeamInfo(res.data.list[index].TeamID, index)
+        this._getTeamInfo(res.data.list[index].team_id, index)
         /**
          *  加载下一条数据
          */
         if(index+1 < res.data.list.length) {
-          this._getTeamInfo(res.data.list[index+1].TeamID, index+1)
+          this._getTeamInfo(res.data.list[index+1].team_id, index+1)
         }
         /**
          *  加载上一条数据
          */
         if(index-1 >= 0) {
-          this._getTeamInfo(res.data.list[index-1].TeamID, index-1)
+          this._getTeamInfo(res.data.list[index-1].team_id, index-1)
         }
         /**
          *  初始化下标  和 当前的加载的teamId
          */
         this.data.teamCurrent = index
-        this.data.teamCurrentID = res.data.list[index].TeamID
+        this.data.teamCurrentID = res.data.list[index].team_id
       }
       this.setData({
         teamCurrent: this.data.teamCurrent,
@@ -158,8 +158,8 @@ Page({
     })
   },
 
-  _getTeamInfo: function (teamID, index) {
-    return getTeamInfo({teamID: teamID}).then((res) => {
+  _getTeamInfo: function (teamId, index) {
+    return getTeamInfo({teamId: teamId}).then((res) => {
       if(index%3 === 0) {
         setTimeout(() => {
           this.setData({
@@ -192,35 +192,35 @@ Page({
    * @param e
    */
   goResourceManage(e) {
-    const id = this.data.teamList[this.data.teamCurrent].TeamID
+    const id = this.data.teamList[this.data.teamCurrent].team_id
     wx.navigateTo({
       url: `/pages/apply/resource-manage/resource-manage?id=${id}`
     })
   },
 
   goTeamSet(e) {
-    const id = this.data.teamList[this.data.teamCurrent].TeamID
+    const id = this.data.teamList[this.data.teamCurrent].team_id
     wx.navigateTo({
       url: `/pages/apply/team-set/team-set?id=${id}`
     })
   },
 
   goStudentsManage(e) {
-    const id = this.data.teamList[this.data.teamCurrent].TeamID
+    const id = this.data.teamList[this.data.teamCurrent].team_id
     wx.navigateTo({
       url: `/pages/apply/students-manage/students-manage?id=${id}`
     })
   },
 
   goTaskManage(e) {
-    const id = this.data.teamList[this.data.teamCurrent].TeamID
+    const id = this.data.teamList[this.data.teamCurrent].team_id
     wx.navigateTo({
       url: `/pages/apply/task-manage/task-manage?id=${id}`
     })
   },
 
   goIssueTask(e) {
-    const id = this.data.teamList[this.data.teamCurrent].TeamID
+    const id = this.data.teamList[this.data.teamCurrent].team_id
     wx.navigateTo({
       url: `/pages/apply/issue-task/issue-task?id=${id}`
     })

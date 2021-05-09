@@ -10,19 +10,19 @@
 
     <view class="data-single" wx:for="{{task.list}}" wx:key="{{index}}">
         <!--区域日期-->
-        <view wx:if="{{!moduleTaskManager.equalDate(task.list[index-1].AddTime, item.AddTime)}}"
+        <view wx:if="{{!moduleTaskManager.equalDate(task.list[index-1].AddTime, item.add_time)}}"
               class="data-single-date-box">
-            <rich-text nodes="{{moduleTaskManager.resolveTime(item.AddTime).date}}"
+            <rich-text nodes="{{moduleTaskManager.resolveTime(item.add_time).date}}"
                        class="data-single-date"  id="data-nodes{{index}}"></rich-text>
         </view>
         <view class="_insert">
             <view class="data-single-time flex between">
-                <text class="color-999 font-12">{{moduleTaskManager.resolveTime(item.AddTime).time}}</text>
+                <text class="color-999 font-12">{{moduleTaskManager.resolveTime(item.add_time).time}}</text>
             </view>
             <view class="data-single-del" hover-class="event-hover-class-view" catchtap="goTaskDetail" data-index="{{index}}">
                 <view catchtap="{{false}}" class="tm-opera">
                     <wu-switch name="positive" slot="footer" color="balanced"
-                               value="{{ item.intState===1?true:false}}"
+                               value="{{ item.state===1?true:false}}"
                                size="small"
                                bind:change="controlFixEvent"
                                capture-bind:tap="captureFix" data-index="{{index}}"/>
@@ -31,19 +31,19 @@
                 <view class="tm-del" catchtap="delTask" data-index="{{index}}">
                     <text class="iconfont icon-del"></text><text>删除</text>
                 </view>
-                <view class="_name">{{item.Datas}}</view>
-                <view class="_content {{item.Datas?'':'noTop'}}"><label>作业说明：</label>{{item.Content}}</view>
+                <view class="_name">{{item.datas}}</view>
+                <view class="_content {{item.datas?'':'noTop'}}"><label>作业说明：</label>{{item.content}}</view>
                 <view class="_num">
-                    <text>已交作业数：{{item.tCount}}</text>
-                    <text wx:if="{{item.ValidTime}}">提交截止时间：{{item.ValidTime}}</text>
+                    <text>已交作业数：{{item.record_count}}</text>
+                    <text wx:if="{{item.valid_time}}">提交截止时间：{{item.valid_time}}</text>
                     <text wx:else>截止日期：长期有效</text>
                 </view>
                 <view class="_del">
                     <text>详情</text><text class="iconfont icon-zuo"></text>
                 </view>
-                <view class="_star" wx:if="{{item.blnMark}}">
+                <!-- <view class="_star" wx:if="{{item.bln_mark}}">
                     <text class="iconfont icon-collect-on"></text>
-                </view>
+                </view> -->
             </view>
         </view>
 

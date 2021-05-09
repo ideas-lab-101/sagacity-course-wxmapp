@@ -117,12 +117,13 @@ Page({
         content: '确定发布作业?',
         success: res => {
           if (res.confirm) {
-            const dataIDs = this.filterDataID(this.data.lesson)
+            const dataIds = this.filterDataID(this.data.lesson)
+            console.log(dataIds)
             addTeamTask({
-              teamID: this.optionsId,
+              teamId: this.optionsId,
               content: this.data.form.content,
               validTime: this.data.switchVal?this.data.form.validTime:'',
-              dataIDs: dataIDs,
+              dataIds: dataIds,
             }).then(res => {
               $wuToast().show({
                 type: 'text',
@@ -143,7 +144,7 @@ Page({
     filterDataID(Arr) {
       let temp = ''
       Arr.map(item => {
-        temp += item.DataID + ','
+        temp += item.data_id + ','
       })
       return temp.substring(0, temp.length-1)
     },
@@ -217,7 +218,7 @@ Page({
    * 课程管理
    */
   openCourseEvent() {
-    $courseDisperse().show({ teamID: this.optionsId, storeData: this.data.lesson }).then(() => {
+    $courseDisperse().show({ teamId: this.optionsId, storeData: this.data.lesson }).then(() => {
       this.setData({textareaReplace: true})
     })
   },

@@ -3,7 +3,7 @@
 <view capture-bind:touchstart="frameTouchStart" capture-bind:touchend="frameTouchEnd">
 
   <view class="mine-background">
-    <image src="{{moduleMine.changeURL(userInfo.zoneBgURL, userInfo.avatarURL)}}" mode="aspectFill"></image>
+    <image src="{{moduleMine.changeURL(userInfo.background_url, userInfo.avatar_url)}}" mode="aspectFill"></image>
     <view class="_shadow"></view>
   </view>
 
@@ -26,11 +26,11 @@
 
         <view class="uerinfo">
           <view class="avatar">
-            <image src="{{userInfo.avatarURL}}" class="avatar-img"></image>
+            <image src="{{userInfo.avatar_url}}" class="avatar-img"></image>
           </view>
           <view class="nickname">
             <text>{{userInfo.caption}}</text>
-            <view class="_sign" wx:if="{{userInfo.signText}}">{{userInfo.SignText}}</view>
+            <view class="_sign" wx:if="{{userInfo.sign_text}}">{{userInfo.SignText}}</view>
             <!--<view class="_edit _o" bindtap="profileEvent" wx:if="{{userInfo.intState===1}}"><text class="iconfont icon-bianji"></text></view>
             <view class="_edit" bindtap="profileEvent" wx:else>[完善资料]</view>-->
           </view>

@@ -21,7 +21,7 @@ Page({
   },
   onLoad: function (options) {
     this.optionsId = options.id
-    this.optionsTeamID = options.teamid
+    this.optionsTeamId = options.teamid
     this.setData({
       'nav.title': decodeURIComponent(options.name)
     })
@@ -39,8 +39,8 @@ Page({
    */
   init() {
     return getTeamRecordGroup({
-      courseID: this.optionsId,
-      teamID: this.optionsTeamID,
+      courseId: this.optionsId,
+      teamId: this.optionsTeamId,
       page: this.data.task.pageNumber
     }).then(res => {
       this.setData({
@@ -69,10 +69,10 @@ Page({
    */
   goTaskDetail(e) {
     const index = e.currentTarget.dataset.index
-    const id = this.data.task.list[index].DataID
-    const name = this.data.task.list[index].DataName
+    const id = this.data.task.list[index].data_id
+    const name = this.data.task.list[index].data_name
     wx.navigateTo({
-      url: `/pages/apply/resource-task-detail/resource-task-detail?id=${id}&teamid=${this.optionsTeamID}&name=${encodeURIComponent(name)}`
+      url: `/pages/apply/resource-task-detail/resource-task-detail?id=${id}&teamid=${this.optionsTeamId}&name=${encodeURIComponent(name)}`
     })
   }
 })

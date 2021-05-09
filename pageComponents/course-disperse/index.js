@@ -1,6 +1,6 @@
 import baseBehavior from '../../components/wu/helpers/baseBehavior'
 import mergeOptionsToData from '../../components/wu/helpers/mergeOptionsToData'
-import {  getCourseList, GetLessonList } from '../../request/coursePort'
+import {  getCourseList, getLessonList } from '../../request/coursePort'
 const { $wuToast } = require('../../components/wu/index')
 const App = getApp()
 
@@ -61,7 +61,8 @@ Component({
                 /**
                  * 获取课程的列表
                  */
-                this.getCourseList(opts.teamID).then(() => {
+                console.log(opts)
+                this.getCourseList(opts.teamId).then(() => {
                     this.$$setData({ courseIn: true })
                     /**
                      * 计算高度
@@ -115,7 +116,7 @@ Component({
             const item = e.currentTarget.dataset.item
             const { storeData } = this.data
 
-            if(this.indexStore(item.DataID) === -1) {
+            if(this.indexStore(item.dataId) === -1) {
                 if(storeData.length >= 3) {
                     $wuToast().show({
                         type: 'text',
@@ -127,27 +128,27 @@ Component({
                 }
                 storeData.push(item)
             }else {
-                this.removeArrayItem(item.DataID)
+                this.removeArrayItem(item.dataId)
             }
             this.setData({
                 storeData
             })
         },
-        indexStore(DataID) {
+        indexStore(dataId) {
             return this.data.storeData.findIndex(item => {
-                return item.DataID === DataID
+                return item.dataId === dataId
             })
         },
-        removeArrayItem(DataID) {
-            const index = this.indexStore(DataID)
+        removeArrayItem(dataId) {
+            const index = this.indexStore(dataId)
             this.data.storeData.splice(index, 1)
         },
         /**
          * 请求课本列表
          */
-        getCourseList(teamID) {
+        getCourseList(teamId) {
             return getCourseList({
-                teamID: teamID,
+                teamId: teamId,
                 state: 1
             }).then(res => {
                 this.setData({
@@ -161,8 +162,8 @@ Component({
         },
 
         getLessonList() { //courseID page orderType(ASC|DESC)
-            return GetLessonList({
-                courseID: this.data.courseList[this.data.courseCurrent].CourseID,
+            return getLessonList({
+                courseId: this.data.courseList[this.data.courseCurrent].course_id,
                 page: this.data.lesson.pageNumber,
                 orderType: 'ASC'
             }).then(res => {

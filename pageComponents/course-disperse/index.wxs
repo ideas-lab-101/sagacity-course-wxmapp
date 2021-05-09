@@ -1,8 +1,8 @@
 
-var inArray = function (DataID, DataArray) {
+var inArray = function (dataId, dataArray) {
   var index = -1
-  DataArray.forEach(function(item, i) {
-    if(item.DataID == DataID) {
+  dataArray.forEach(function(item, i) {
+    if(item.data_id == dataId) {
       index = i
     }
   })

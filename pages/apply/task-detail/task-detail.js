@@ -13,8 +13,8 @@ Page({
     /**
      * data
      */
-    NoExitList: [],
-    ExitList: [],
+    noExistList: [],
+    existList: [],
     /**
      * params
      */
@@ -67,9 +67,9 @@ Page({
   markEvent(e) {
     const index = e.currentTarget.dataset.index
     const proIndex = e.currentTarget.dataset.pro
-    const name = this.data.ExitList[index].ProfileName
-    const submitID = this.data.ExitList[index].rList[proIndex].SubmitID
-    const state = this.data.ExitList[index].rList[proIndex].blnMark
+    const name = this.data.existList[index].profile_name
+    const submitId = this.data.existList[index].rList[proIndex].submit_id
+    const state = this.data.existList[index].rList[proIndex].bln_mark
     let content = `确定给${name}的作品星级评价?`
     if (state === 1) {
       content = `确定取消${name}的作品星级评价?`
@@ -79,22 +79,22 @@ Page({
       content: content,
       success: res => {
         if (res.confirm) {
-          this._setRecordMark(submitID, state, index, proIndex)
+          this._setRecordMark(submitId, state, index, proIndex)
         }
       }
     })
   },
-  _setRecordMark(submitID, state, index, proIndex) {
+  _setRecordMark(submitId, state, index, proIndex) {
     if(state === 0) {
       state = 1
     }else {
       state = 0
     }
     setRecordMark({
-      submitID: submitID,
+      submitId: submitId,
       state: state
     }).then(res => {
-      const obj = `ExitList[${index}].rList[${proIndex}].blnMark`
+      const obj = `existList[${index}].rList[${proIndex}].bln_mark`
       this.setData({
         [obj]: state
       })
@@ -113,8 +113,8 @@ Page({
       success: res => {
         if (res.confirm) {
           remindSubmit({
-            taskID: this.optionsId,
-            profileID: id
+            taskId: this.optionsId,
+            profileId: id
           }).then(res => {
             $wuToast().show({
               type: 'text',
@@ -157,11 +157,11 @@ Page({
       },
       series: [{
         name: '已交作品的成员',
-        data:  this.data.ExitList.length,
+        data:  this.data.existList.length,
         stroke: false
       }, {
         name: '未交作品的成员',
-        data: this.data.NoExitList.length,
+        data: this.data.noExistList.length,
         stroke: false
       }],
       disablePieStroke: true,
@@ -178,8 +178,8 @@ Page({
     }, 500);
   },
   getRingData() {
-    const total = this.data.ExitList.length + this.data.NoExitList.length
-    return `${Math.ceil((this.data.ExitList.length/total)*100)}%`
+    const total = this.data.existList.length + this.data.noExistList.length
+    return `${Math.ceil((this.data.existList.length/total)*100)}%`
   },
   /**
    * 请求数据
@@ -187,12 +187,12 @@ Page({
    */
   init() {
     getTaskSummary({
-      teamID: this.optionsTeamId,
-      taskID: this.optionsId
+      teamId: this.optionsTeamId,
+      taskId: this.optionsId
     }).then(res => {
       this.setData({
-        NoExitList: res.data.NoExitList,
-        ExitList: res.data.ExitList
+        noExistList: res.data.noExistList,
+        existList: res.data.existList
       })
       /**
        * 更新数据
@@ -206,11 +206,11 @@ Page({
           },
           series: [{
             name: '已交作业的学员',
-            data:  this.data.ExitList.length,
+            data:  this.data.existList.length,
             stroke: false
           }, {
             name: '未交作业的学员',
-            data: this.data.NoExitList.length,
+            data: this.data.noExistList.length,
             stroke: false
           }]
         })

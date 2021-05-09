@@ -37,21 +37,21 @@ Page({
   kickOut(e) {
     const index = e.currentTarget.dataset.index
     const relIndex = e.currentTarget.dataset.rel
-    const userID = this.data.students.list[index].rList[relIndex].UserID
+    const userId = this.data.students.list[index].rList[relIndex].user_id
     wx.showModal({
       title: '踢出成员',
       content: '确定踢出该成员?',
       success: res => {
         if (res.confirm) {
-          this._removeTeamMember(this.optionsId, userID, index, relIndex)
+          this._removeTeamMember(this.optionsId, userId, index, relIndex)
         }
       }
     })
   },
-  _removeTeamMember(teamID, userID, index, relIndex) {
+  _removeTeamMember(teamId, userId, index, relIndex) {
     removeTeamMember({
-      teamID: teamID,
-      userID: userID
+      teamId: teamId,
+      userId: userId
     }).then(res => {
       this.data.students.list[index].rList.splice(relIndex, 1)
       const obj = `students.list[${index}].rList`
@@ -66,7 +66,7 @@ Page({
    */
   init() {
     return getTeamProfile({
-      teamID: this.optionsId,
+      teamId: this.optionsId,
       page: this.data.students.pageNumber
     }).then(res => {
       this.setData({

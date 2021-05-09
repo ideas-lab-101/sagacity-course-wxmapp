@@ -7,11 +7,11 @@
 </wu-navigation>
 <view class="sm-container">
     <view class="sm-single" wx:for="{{students.list}}" wx:key="{{index}}">
-        <view class="_name">{{item.ProfileName}}</view>
+        <view class="_name">{{item.profile_name}}</view>
         <view class="_del">
             <view class="flex">
-                <view><text>学号：</text><text>{{item.ProfileNo}}</text></view>
-                <view><text>作品数：</text><text>{{item.rCount}}</text></view>
+                <view><text>学号：</text><text>{{item.profile_no}}</text></view>
+                <view><text>作品数：</text><text>{{item.record_count}}</text></view>
             </view>
             <view class="_d" wx:if="{{item.rList.length>0}}"><text>关联家长</text><text class="iconfont icon-doubleArrowDown"></text></view>
         </view>
@@ -20,10 +20,10 @@
             <view class="sm-relevance" wx:for="{{item.rList}}" wx:key="{{relIndex}}" wx:for-index="relIndex" wx:for-item="relItem">
                 <view class="flex _info">
                     <image class="_image" mode="aspectFill" src="{{relItem.avatar_url}}" lazy-load/>
-                    <text>{{relItem.Label}}</text>
-                    <text>{{relItem.LoginName}}</text>
+                    <text>{{relItem.label}}</text>
+                    <text>{{relItem.login_name}}</text>
                 </view>
-                <view class="_btn" catchtap="kickOut" data-index="{{index}}" data-rel="{{relIndex}}" wx:if="{{userInfo.UserID !== relItem.UserID}}">踢出小组</view>
+                <view class="_btn" catchtap="kickOut" data-index="{{index}}" data-rel="{{relIndex}}" wx:if="{{userInfo.user_id !== relItem.user_id}}">踢出小组</view>
             </view>
         </view>
     </view>

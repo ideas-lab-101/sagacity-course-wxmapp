@@ -40,7 +40,7 @@ Page({
    */
   captureFix(e) {
     this.captureIndex = e.currentTarget.dataset.index
-    this.captureID = this.data.courseList[this.captureIndex].ResourceID
+    this.captureId = this.data.courseList[this.captureIndex].resource_id
   },
   controlFixEvent(e) {
     let valTemp = 0
@@ -61,11 +61,11 @@ Page({
       valTemp = 1
       msgTemp = '资源已启用'
     }
-    const intState = `courseList[${this.captureIndex}].intState`
+    const state = `courseList[${this.captureIndex}].state`
 
-    this.setResourceState(this.captureID, valTemp).then(res => {
+    this.setResourceState(this.captureId, valTemp).then(res => {
       this.setData({
-        [intState]: valTemp
+        [state]: valTemp
       })
       $wuToast().show({
         type: 'text',
@@ -81,7 +81,7 @@ Page({
   getCourseFixLen() {
     let i = 0
     this.data.courseList.map(item => {
-      if(item.intState === 1) {
+      if(item.state === 1) {
         i++
       }
     })
@@ -94,7 +94,7 @@ Page({
    */
   init() {
     getCourseList({
-      teamID: this.optionsId,
+      teamId: this.optionsId,
       state: ''
     }).then(res => {
       this.setData({
@@ -103,9 +103,9 @@ Page({
     })
   },
 
-  setResourceState(resourceID, state) {
+  setResourceState(resourceId, state) {
     return setResourceState({
-      resourceID: resourceID,
+      resourceId: resourceId,
       state: state
     }).then(res => {
       return res

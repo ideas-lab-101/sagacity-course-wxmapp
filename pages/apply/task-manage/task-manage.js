@@ -35,7 +35,7 @@ Page({
    */
   delTask(e) {
     const index = e.currentTarget.dataset.index
-    const id = this.data.task.list[index].TaskID
+    const id = this.data.task.list[index].task_id
     wx.showModal({
       title: '删除提示',
       content: `确定删除作业?`,
@@ -46,8 +46,8 @@ Page({
       }
     })
   },
-  _removeTeamTask(taskID, index) {
-    removeTeamTask({taskID}).then( res => {
+  _removeTeamTask(taskId, index) {
+    removeTeamTask({taskId}).then( res => {
       this.data.task.list.splice(index, 1)
       this.setData({
         'task.list': this.data.task.list
@@ -61,7 +61,7 @@ Page({
    */
   captureFix(e) {
     this.captureIndex = e.currentTarget.dataset.index
-    this.captureID = this.data.task.list[this.captureIndex].TaskID
+    this.captureId = this.data.task.list[this.captureIndex].task_id
   },
   controlFixEvent(e) {
     let valTemp = 0
@@ -71,11 +71,11 @@ Page({
       valTemp = 1
       msgTemp = '当前作业已开启'
     }
-    const intState = `task.list[${this.captureIndex}].intState`
+    const state = `task.list[${this.captureIndex}].state`
 
-    this.setTeamTaskState(this.captureID, valTemp).then(res => {
+    this.setTeamTaskState(this.captureId, valTemp).then(res => {
       this.setData({
-        [intState]: valTemp
+        [state]: valTemp
       })
       $wuToast().show({
         type: 'text',
@@ -85,9 +85,9 @@ Page({
       })
     })
   },
-  setTeamTaskState(taskID, state) {
+  setTeamTaskState(taskId, state) {
     return setTeamTaskState({
-      taskID: taskID,
+      taskId: taskId,
       state: state
     }).then(res => {
       return res
@@ -99,7 +99,7 @@ Page({
    */
   init() {
     return getTeamTaskList({
-      teamID: this.optionsId,
+      teamId: this.optionsId,
       page: this.data.task.pageNumber
     }).then(res => {
       this.setData({
@@ -128,8 +128,8 @@ Page({
    */
   goTaskDetail(e) {
     const index = e.currentTarget.dataset.index
-    const id = this.data.task.list[index].TaskID
-    const name = this.data.task.list[index].Content
+    const id = this.data.task.list[index].task_id
+    const name = this.data.task.list[index].content
     wx.navigateTo({
       url: `/pages/apply/task-detail/task-detail?id=${id}&teamid=${this.optionsId}&name=${encodeURIComponent(name)}`
     })
