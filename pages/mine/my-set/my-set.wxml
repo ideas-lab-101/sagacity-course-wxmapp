@@ -8,8 +8,8 @@
 </wu-navigation>
 
 <view wx:if="{{documents.length>0}}" class="set-single-box">
-  <view class="set-single flex between" hover-class="event-hover-class-view" bindtap="goToGuidesEvent" wx:for="{{documents}}" wx:key="{{index}}" data-id="{{item.InfoID}}">
-    <text>{{item.Title}}</text>
+  <view class="set-single flex between" hover-class="event-hover-class-view" bindtap="goToGuidesEvent" wx:for="{{documents}}" wx:key="{{index}}" data-id="{{item.info_id}}">
+    <text>{{item.title}}</text>
     <view class="_r"><text class="iconfont icon-zuo"></text></view>
   </view>
 </view>

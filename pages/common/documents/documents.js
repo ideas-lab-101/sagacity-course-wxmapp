@@ -32,11 +32,11 @@ Page({
      * 内部数据获取事件
      * ***/
     _initData: function (id) {
-        getInfoContent({infoID: id}).then((res) => {
+        getInfoContent({infoId: id}).then((res) => {
           console.log(res)
-          this.setData({info: res.data.info, 'nav.title': res.data.info.Title})
+          this.setData({info: res.data.info, 'nav.title': res.data.info.title})
           // 文稿编译
-          WxParse.wxParse('detail', 'html', res.data.info.Content || '<p style="font-size: 14px;">暂无介绍</p>', this, 5)
+          WxParse.wxParse('detail', 'html', res.data.info.content || '<p style="font-size: 14px;">暂无介绍</p>', this, 5)
         })
     }
 
